@@ -1,33 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Parameter Details</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Order Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            'bg-primary': '#1a1a1a',
+                            'bg-secondary': '#2d2d2d',
+                            'text-primary': '#ffffff',
+                            'text-secondary': '#a0aec0',
+                            'border': '#404040'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <div class="container mt-4">
-        <h3>Order Details (Parameters)</h3>
-        <form>
-            <div class="mb-3">
-                <label for="customerId" class="form-label">Customer ID:</label>
-                <input type="text" class="form-control" id="customerId" value="{{ $customerId }}" readonly>
+<body class="bg-dark-bg-primary text-dark-text-primary min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-dark-bg-secondary border-b border-dark-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="text-dark-text-primary hover:text-dark-text-secondary transition-colors">
+                        Dashboard
+                    </a>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="customerName" class="form-label">Customer Name:</label>
-                <input type="text" class="form-control" id="customerName" value="{{ $customerName }}" readonly>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="bg-dark-bg-secondary rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold mb-6 text-dark-text-primary">Order Details</h2>
+            
+            <div class="space-y-6">
+                <div class="border-b border-dark-border pb-4">
+                    <label class="block text-sm font-medium text-dark-text-secondary mb-1">Customer ID</label>
+                    <div class="text-lg text-dark-text-primary">{{ $customerId }}</div>
+                </div>
+                
+                <div class="border-b border-dark-border pb-4">
+                    <label class="block text-sm font-medium text-dark-text-secondary mb-1">Customer Name</label>
+                    <div class="text-lg text-dark-text-primary">{{ $customerName }}</div>
+                </div>
+                
+                <div class="border-b border-dark-border pb-4">
+                    <label class="block text-sm font-medium text-dark-text-secondary mb-1">Order Number</label>
+                    <div class="text-lg text-dark-text-primary">{{ $orderNo }}</div>
+                </div>
+                
+                <div class="border-b border-dark-border pb-4">
+                    <label class="block text-sm font-medium text-dark-text-secondary mb-1">Date</label>
+                    <div class="text-lg text-dark-text-primary">{{ $orderDate }}</div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="orderNo" class="form-label">Order No:</label>
-                <input type="text" class="form-control" id="orderNo" value="{{ $orderNo }}" readonly>
-            </div>
-            <div class="mb-3">
-                <label for="orderDate" class="form-label">Date:</label>
-                <input type="text" class="form-control" id="orderDate" value="{{ $orderDate }}" readonly>
-            </div>
-        </form>
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
